@@ -1,0 +1,67 @@
+/* Catalog section styling */
+.catalog-section {
+  padding: 40px 20px;
+  text-align: center;       
+  background-color: #f7f7f2;
+}
+
+/* Page heading */
+.catalog-section h1 {
+  font-size: 2.5rem;
+  color: #585123;
+  margin-bottom: 40px;
+}
+
+/* Grid layout for products */
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  justify-items: center;  
+}
+
+/* Individual product card */
+.product-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 15px;
+  width: 100%;
+  max-width: 220px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+/* Hover effect */
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+/* Product image */
+.product-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+/* Product title */
+.product-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  color: #3b3b3b;
+}
+
+/* Product description */
+.product-card p {
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+  color: #555555;
+}
+
+/* Price styling */
+.product-card .price {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #f58549;
+}

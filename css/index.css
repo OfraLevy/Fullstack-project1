@@ -14,6 +14,7 @@ body {
   justify-content: space-between; 
   align-items: center;           
   padding: 10px 40px;
+  background-color: #ffffff;
 }
 
 
@@ -31,7 +32,7 @@ body {
 
 /* NAVBAR */
 .main-nav {
-  background-color: #fdf7f2;           
+  background-color: #fdf7f2;    
 }
 
 .nav-list {
@@ -67,6 +68,7 @@ body {
   color: #f58549;
 }
 
+
 #home_page_background {
   width: 100%;
   height: auto;
@@ -78,7 +80,7 @@ body {
   justify-content: center;
   align-items: stretch;
   gap: 20px;
-  background-color: #b3a742; 
+  background-color: #8E982F; 
   padding: 40px 60px;
   color: #000;
   text-align: center;
@@ -86,7 +88,7 @@ body {
 
 .info-box {
   flex: 1;
-  background-color: #b3a742;
+  background-color: #8E982F;
   border-radius: 10px;
   padding: 30px 20px;
   transition: transform 0.3s ease;
@@ -101,11 +103,11 @@ body {
   color: #000;
   font-size: 2rem;
   margin-bottom: 0px;
-  margin-top: 5px;
+  margin-top: 0px;
 }
 
 .info-box p {
-  font-size: 1rem;
+  font-size: 1.45rem;
   margin-top: 5px;
 
 }
@@ -113,4 +115,77 @@ body {
 .info-icons {
   width: 35%;
   height: auto;
+}
+
+/* Deals */
+.deals-section {
+  background-color: #f7f7f2; 
+  padding: 40px 20px;        
+  text-align: center;         
+}
+
+/* Section heading */
+.deals-section h2 {
+  font-size: 2.5rem;
+  color: #585123;
+  margin-bottom: 50px;        
+}
+
+/* Container for deal boxes */
+.deals-container {
+  display: flex;               
+  justify-content: center;    
+  gap: 20px;                   
+  flex-wrap: wrap;            
+}
+
+
+.deal-box {
+  background-color: #ffffff;   
+  border-radius: 10px;         
+  padding: 20px 15px;         
+  width: 300px; 
+  height: 250px;               
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+  transition: transform 0.3s ease;        
+}
+
+
+.deal-box:hover {
+  transform: translateY(-5px); 
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2); 
+}
+
+
+.deal-box h3 {
+  font-size: 1.8rem;
+  color: #3b3b3b;
+  text-align: center;
+}
+
+
+.deal-box .price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #f58549;
+  margin-top: 70px;  
+}
+
+
+/*footer*/
+.main-footer {
+  text-align: center;     
+  padding: 20px 0;         
+  font-size: 1rem;       
+  color: #3b3b3b;         
+}
+
+.main-footer a {
+  text-decoration: none;
+  color: #3b3b3b;
+  margin: 0 5px;           
+}
+
+.main-footer a:hover {
+  color: #f58549;        
 }
