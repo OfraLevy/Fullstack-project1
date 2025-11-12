@@ -1,0 +1,294 @@
+/* ===== בסיס עיצוב ===== */
+:root{
+  --ink:#2e2e2e;
+  --muted:#6b6b6b;
+  --panel:#ffffff;
+  --bg:#f7f7f2;
+  --accent:#585123;   /* כותרות */
+  --accent2:#f58549;  /* הדגשות */
+  --shadow:0 10px 30px rgba(0,0,0,.08);
+}
+html{ scroll-behavior:smooth; }
+.about{ background:var(--bg); }
+
+/* כותרת עמוד */
+.hero{
+  max-width:1100px;
+  margin:28px auto 8px;
+  padding:0 18px;
+  text-align:right;
+}
+.hero h1{
+  color:var(--accent);
+  font-size:2.2rem;
+  margin:0 0 8px;
+  font-weight:800;
+}
+.hero p{
+  color:var(--muted);
+  margin:0;
+  font-size:1.05rem;
+}
+
+/* ===== פריסת שני טורים: תוכן + סרגל ימין ===== */
+/* ===== פריסת שני טורים: סרגל ימין + תוכן ===== */
+.about-grid{
+  max-width:1100px;
+  margin:12px auto 40px;
+  padding:0 18px;
+  display:grid;
+  grid-template-columns: 240px 1fr; /* עכשיו סרגל מימין */
+  grid-template-areas: "toc content";
+  gap:28px;
+  align-items:start;
+}
+.toc{ grid-area: toc; }
+.content{ grid-area: content; }
+
+
+/* סרגל צד ימין – נקי, ללא עיגולים */
+.toc{
+  position:sticky;
+  top:84px;                 /* התאימי לגובה ההדר שלך */
+  align-self:start;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+.toc a{
+  display:block;
+  padding:10px 12px;
+  border-right:3px solid transparent; /* RTL פס הדגשה */
+  color:#6b6b6b;
+  text-decoration:none;
+  font-weight:600;
+}
+.toc a:hover{ color:#3b3b3b; }
+
+/* === הדגשת סעיף פעיל באמצעות :target וללא JS === */
+/* כשיש עוגן פעיל – הדגש את הקישור המתאים */
+#story:target ~ .toc a[href="#story"],
+#today:target ~ .toc a[href="#today"],
+#testimonials:target ~ .toc a[href="#testimonials"],
+#video:target ~ .toc a[href="#video"]{
+  color:var(--accent);
+  border-right-color:var(--accent2);
+  background:#fff;
+  box-shadow:var(--shadow);
+}
+
+/* מצב פתיחה (כשאין #target) – הדגש את הראשון כברירת מחדל */
+.about-grid:not(:has(:target)) .toc a[href="#story"]{
+  color:var(--accent);
+  border-right-color:var(--accent2);
+  background:#fff;
+  box-shadow:var(--shadow);
+}
+
+/* שמירת הכותרת גלויה בכל קפיצה לעוגן */
+section[id]{ scroll-margin-top: 100px; }
+
+/* ===== מקטעים מפוצלים – תמונה מול טקסט ===== */
+.split{
+  margin:0 0 40px;
+  display:grid;
+  grid-template: 1.15fr 1fr 1fr 1.15fr; /* טקסט מעט רחב יותר */
+  gap:24px;
+  align-items:center;
+}
+.split-right .text{ grid-column:1; }
+.split-right .media{ grid-column:2; }
+.split-left  .media{ grid-column:1; }
+.split-left  .text{ grid-column:2; }
+
+.split .text h2{
+  color:var(--accent);
+  font-size:1.8rem;
+  margin:0 0 10px;
+}
+.split .text .lead{
+  font-size:1.08rem;
+  color:var(--ink);
+  line-height:1.9;
+}
+.split .text p{ color:#3c3c3c; line-height:1.9; }
+.split .text strong{ color:var(--accent2); }
+
+.split-right .media img{
+  width:100%;
+  height:360px;
+  object-fit:cover;
+  border-radius:14px;
+  box-shadow:var(--shadow);
+  display:block;
+}
+
+.split-left img{
+  width: 300px;
+  height:100%;
+  object-fit:cover;
+  border-radius:14px;
+  box-shadow:var(--shadow);
+  display:block;
+}
+
+.bullets{
+  margin:10px 0 0;
+  padding:0 1.2em 0 0;
+  color:#3c3c3c;
+}
+.bullets li{ margin:6px 0; }
+
+/* לקוחות ממליצים */
+.testimonials{
+  max-width:1100px;
+  margin:0 auto 44px;
+  padding:0 18px;
+}
+.testimonials h2{
+  color:var(--accent);
+  font-size:1.8rem;
+  margin:0 0 14px;
+}
+.cards{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap:16px;
+}
+.tcard{
+  background:var(--panel);
+  border:1px solid #eee6d9;
+  border-radius:14px;
+  padding:16px;
+  box-shadow:var(--shadow);
+}
+.tcard-head{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:8px;
+}
+.avatar{
+  width:44px; height:44px;
+  border-radius:999px;
+  object-fit:cover;
+  background:#f2e9dd;
+}
+.tcard h3{ margin:0; color:#2e2e2e; font-size:1.05rem; }
+.tcard .meta{ font-size:.9rem; color:var(--muted); }
+.tcard p{ margin:0; color:#3b3b3b; line-height:1.7; }
+.more summary{
+  margin-top:8px;
+  cursor:pointer;
+  color:var(--accent2);
+  font-weight:600;
+}
+
+/* ===== וידאו ===== */
+.video h2{
+  color:var(--accent);
+  font-size:1.8rem;
+  margin:0 0 12px;
+}
+.video video, .video iframe{
+  width:100%;
+  aspect-ratio:16/9;
+  background:#000;
+  border-radius:14px;
+  box-shadow:var(--shadow);
+}
+
+/* ===== מובייל ===== */
+@media (max-width:900px){
+  .about-grid{
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "toc"
+      "content";
+    gap:16px;
+  }
+  .toc{
+    position:sticky;
+    top:64px;
+    flex-direction:row;
+    gap:10px;
+    padding:8px 0;
+    border-top:1px solid #eceae4;
+    border-bottom:1px solid #eceae4;
+    background:var(--bg);
+  }
+  .toc a{ border-right:none; border-bottom:3px solid transparent; }
+  /* הדגשה במובייל לפי :target */
+  #story:target ~ .toc a[href="#story"],
+  #today:target ~ .toc a[href="#today"],
+  #testimonials:target ~ .toc a[href="#testimonials"],
+  #video:target ~ .toc a[href="#video"]{
+    border-bottom-color:var(--accent2);
+    box-shadow:none;
+    background:transparent;
+  }
+  .split{ grid-template-columns:1fr; }
+  .split .media img{ height:240px; }
+  .hero h1{ font-size:1.9rem; }
+}
+
+/* --- 1) מקרב את הסרגל לצד ימין ומקטין ריווחים --- */
+.hero,
+.about-grid{
+  max-width: 1200px;
+}
+
+/* פחות padding מימין – שהסרגל יתקרב לקצה */
+.about-grid{
+  padding-right: 0;       /* היה 18px */
+  padding-left: 18px;
+  grid-template-columns: 200px 1fr; /* היה 240px */
+  gap: 20px;                          /* היה 28px */
+}
+
+/* טקסט הכותרת נשאר מיושר יפה */
+.hero{ padding-right: 0; }
+
+/* קצת פחות padding לכל פריט בתוכן העניינים */
+.toc a{ padding: 8px 10px; }
+
+/* --- 2) הדגשת סעיף פעיל בלי JS (באמצעות :has) --- */
+/* דיפולט: אם אין עוגן בכתובת – מדגישים את הראשון */
+.about-grid:not(:has(:target)) .toc a[href="#story"]{
+  color: var(--accent);
+  border-right-color: var(--accent2);
+  background: #fff;
+  box-shadow: var(--shadow);
+}
+
+/* כשאחד הסקשנים ביעד – הדגש את הקישור המתאים */
+.about-grid:has(#story:target) .toc a[href="#story"],
+.about-grid:has(#today:target) .toc a[href="#today"],
+.about-grid:has(#testimonials:target) .toc a[href="#testimonials"],
+.about-grid:has(#video:target) .toc a[href="#video"]{
+  color: var(--accent);
+  border-right-color: var(--accent2);
+  background: #fff;
+  box-shadow: var(--shadow);
+}
+
+/* שיהיה תמיד מקום לכותרת אחרי קפיצה לעוגן */
+section[id]{ scroll-margin-top: 100px; }
+
+/* מובייל – שומר על הדגשה גם בתצורה האופקית */
+@media (max-width:900px){
+  .about-grid{
+    padding-right: 12px;  /* מעט מרווח בצד ימין במסכים צרים */
+    gap: 12px;
+  }
+  .toc a{ padding: 8px 8px; }
+  .about-grid:has(#story:target) .toc a[href="#story"],
+  .about-grid:has(#today:target) .toc a[href="#today"],
+  .about-grid:has(#testimonials:target) .toc a[href="#testimonials"],
+  .about-grid:has(#video:target) .toc a[href="#video"]{
+    border-bottom-color: var(--accent2);
+    box-shadow: none;
+    background: transparent;
+  }
+}
+
