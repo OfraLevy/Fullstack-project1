@@ -1,3 +1,8 @@
+/* Active nav link */
+.nav-item:first-child a {
+  color: #f58549;
+}
+
 /* Catalog section styling */
 .catalog-section {
   padding: 40px 20px;
@@ -31,11 +36,31 @@
   transition: transform 0.3s ease;
 }
 
+/* Grid layout for sweets*/
+.catalog-grid-sweets {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  justify-items: center;
+}
+
+/* Individual product card for sweets */
+.product-card-sweets {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 15px;
+  width: 100%;
+  max-width: 350px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
 /* Hover effect */
-.product-card:hover {
+.product-card,.product-card-sweets:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 12px rgba(0,0,0,0.2);
 }
+
 
 /* Product image */
 .product-image {
@@ -46,21 +71,21 @@
 }
 
 /* Product title */
-.product-card h3 {
-  font-size: 1.2rem;
+.product-card,.product-card-sweets h3 {
+  font-size: 1.3rem;
   margin-bottom: 5px;
   color: #3b3b3b;
 }
 
 /* Product description */
-.product-card p {
-  font-size: 0.95rem;
+.product-card,.product-card-sweets p {
+  font-size: 1.2rem;
   margin-bottom: 10px;
   color: #555555;
 }
 
 /* Price styling */
-.product-card .price {
+.product-card .price ,.product-card-sweets .price {
   font-size: 1.1rem;
   font-weight: bold;
   color: #f58549;
