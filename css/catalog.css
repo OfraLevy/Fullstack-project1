@@ -1,5 +1,5 @@
 /* Active nav link */
-.nav-item:first-child a {
+#cur_page a {
   color: #f58549;
 }
 
@@ -56,7 +56,7 @@
 }
 
 /* Hover effect */
-.product-card,.product-card-sweets:hover {
+.product-card:hover, .product-card-sweets:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 12px rgba(0,0,0,0.2);
 }
@@ -67,20 +67,17 @@
   width: 100%;
   height: auto;
   border-radius: 10px;
-  margin-bottom: 10px;
 }
 
 /* Product title */
 .product-card,.product-card-sweets h3 {
   font-size: 1.3rem;
-  margin-bottom: 5px;
   color: #3b3b3b;
 }
 
 /* Product description */
 .product-card,.product-card-sweets p {
   font-size: 1.2rem;
-  margin-bottom: 10px;
   color: #555555;
 }
 
@@ -89,4 +86,42 @@
   font-size: 1.1rem;
   font-weight: bold;
   color: #f58549;
+}
+
+
+/* ===== Responsive catalog layout ===== */
+
+/* Tablet / large mobile */
+@media (max-width: 480px) {
+
+    /* Reduce general section padding */
+  .catalog-section {
+    padding: 18px 12px;
+  }
+
+  /* Smaller heading */
+  .catalog-section h1 {
+    font-size: 1.6rem;
+    margin: 16px 0 18px;
+  }
+  
+    /* One card per row */
+  .catalog-grid,
+  .catalog-grid-sweets {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  /* Slightly smaller cards and text */
+  .product-card,
+  .product-card-sweets {
+    padding: 14px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+  }
+
+  .product-card{
+      max-width: 350px;
+  }
+
 }

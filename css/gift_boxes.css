@@ -1,9 +1,7 @@
-/* ===== עמוד וכותרת – אותה הזחה גם לטקסט וגם לכרטיסיות ===== */
 /* Active nav link */
-#cur_page a {
-  color: #f58549;
-}
+#cur_page a { color: #f58549; }
 
+/* ===== Page base ===== */
 .gift-page{
   display:flex;
   flex-direction:column;
@@ -11,73 +9,64 @@
   background:#f7f7f2;
 }
 
+/* Intro */
 .gift-intro{
   max-width:1200px;
   margin:32px auto 18px;
-  padding:0 24px;           /* אותה הזחה כמו הכרטיסיות */
-  text-align:right;
 }
 .gift-intro h1{
   color:#585123;
   font-size:2.2rem;
   margin:0 0 8px;
 }
-.gift-intro p{
+.gift-intro .gift-description{
   color:#444;
   font-size:1.08rem;
   line-height:1.75;
   margin:0;
 }
 
-/* ===== רשימת כרטיסיות ===== */
+/* Cards list */
 .cards-grid{
   display:flex;
-  flex-direction:column;     /* אחת מתחת לשניה */
+  flex-direction:column;
   gap:22px;
   max-width:1200px;
   margin:0 auto 48px;
-  padding:0 24px;            /* אותה הזחה כמו הכותרת */
 }
 
-/* ===== כרטיס בודד ===== */
+/* Single card */
 .gift-card{
   width:100%;
   background:#fff;
   border-radius:16px;
-  overflow:hidden;
   box-shadow:0 12px 28px rgba(0,0,0,.12);
   border:1px solid #eee;
   transition:transform .15s ease, box-shadow .2s ease;
 }
-.gift-card:hover{ transform:translateY(-3px); box-shadow:0 16px 36px rgba(0,0,0,.16); }
-.gift-card[open]{ box-shadow:0 18px 40px rgba(0,0,0,.2); }
+.gift-card:hover{ 
+  transform:translateY(-3px); 
+  box-shadow:0 16px 36px rgba(0,0,0,.16); 
+}
 
-/* ===== ראש הכרטיס (summary) – תמונה שמאל גדולה, טקסט ימין ===== */
+/* Header (label) */
 .card-summary{
   display:flex;
-  flex-direction:row-reverse;     /* RTL: טקסט בימין, תמונה משמאל */
+  flex-direction:row-reverse; /* RTL: text right, image left */
   align-items:stretch;
   gap:20px;
-  cursor:pointer;
   padding:18px;
-  padding-right: 26px; 
+  padding-right:26px; /* extra space so arrow won't clip */
 }
-.card-summary::-webkit-details-marker{ display:none; }
 
-/* התמונה תתפוס ~40% מהכרטיס ותקבל גובה משמעותי */
 .card-img{
-  flex:0 0 40%;
   width:40%;
-  height:240px;                   /* <<< גובה גדול לתמונה */
-  object-fit:cover;
+  height:240px;
   border-radius:14px;
-  order:1;                        /* נשארת משמאל */
   box-shadow:0 6px 18px rgba(0,0,0,.15);
 }
 
-/* צד הטקסט */
 .card-head{
-  order:2;
   flex:1 1 auto;
   display:flex;
   flex-direction:column;
@@ -85,46 +74,53 @@
   gap:8px;
 }
 .card-head h3{
-  font-size:1.5rem;             /* כותרת גדולה יותר */
+  font-size:1.5rem;
   color:#772F1A;
   margin:0;
 }
-.card-blurb{
+.card-description{
   margin:0;
   color:#666;
   font-size:1.02rem;
   line-height:1.6;
 }
 
-/* חץ פתיחה */
-.chevron{
-  order:3;
-  margin-left:auto;
+/* Arrow as image */
+.arrow-icon{
+  order:3;/* so it appears last when the screen is small */
   align-self:center;
-  width:14px; height:14px;
-  border-inline-end:2px solid #585123;
-  border-bottom:2px solid #585123;
-  transform:rotate(-45deg);
-  transition:transform .2s ease;
-  margin-inline-start: auto;         /* עדיף לוגי על margin-left */
-  flex: 0 0 auto;                    /* אל תתמתח */
-  transform-origin: 60% 60%;  
+  width:20px;
+  height:20px;
+  transition:transform .25s ease;
 }
-.gift-card[open] .chevron{ transform:rotate(45deg); }
 
-/* ===== גוף הכרטיס (החלק הנפתח) ===== */
-.card-body{
-  padding: 0 18px 20px;
-  animation:drop .18s ease-out;
+/* Hidden checkbox controller */
+.card-toggle{ display:none; }
+
+/* Body default hidden */
+.card-body{ 
+  display:none;
+  padding:0 25px 22px;
 }
-@keyframes drop{ from{opacity:0; transform:translateY(-4px);} to{opacity:1; transform:translateY(0);} }
 
-/* ===== טבלה ===== */
+/* Open state: show body + rotate arrow */
+.card-toggle:checked ~ .card-body{
+  display:block;
+  animation: drop .18s ease-out;
+}
+.card-toggle:checked + .card-summary .arrow-icon{
+  transform: rotate(90deg);
+}
+
+@keyframes drop{
+  from{ opacity:0; transform:translateY(-4px); }
+  to  { opacity:1; transform:translateY(0); }
+}
+
+/* Table */
 .gift-card .gift-table{
   width:100%;
   border-collapse:collapse;
-  margin:8px 0 14px;
-  font-size:1rem;                /* גדול יותר לקריאות */
 }
 .gift-card .gift-table th,
 .gift-card .gift-table td{
@@ -145,7 +141,7 @@
 .gift-card .gift-table .row-sub td{ color:#777; }
 .gift-card .gift-table .row-discount td{ color:#f58549; }
 
-/* ===== כפתור ===== */
+/* CTA */
 .btn-primary{
   width:100%;
   border:none;
@@ -155,32 +151,31 @@
   font-weight:700;
   background:#f58549;
   color:#fff;
-  cursor:pointer;
   transition:filter .15s ease, transform .06s ease;
   box-shadow:0 8px 18px rgba(245,133,73,.3);
 }
-.btn-primary:hover{ filter:brightness(1.06); }
-.btn-primary:active{ transform:translateY(1px); }
+.btn-primary:hover{
+   background: #f59764; 
+  }
+.btn-primary:active{
+   transform:translateY(1px);
+}
 
-/* ===== רספונסיביות – במובייל התמונה מעל הטקסט ותופסת רוחב מלא ===== */
-@media (max-width: 760px){
+/* Responsive */
+@media (max-width: 800px){
   .card-summary{
     flex-direction:column;
-    gap:12px;
-    padding:14px;
   }
   .card-img{
-    width:100%;
-    height:210px;
-    flex:0 0 auto;
-    order:1;           /* מעל הטקסט */
+    width:90%;
+    height:auto;
+    align-self: center;
   }
-  .card-head{ order:2; }
-  .btn-primary{ padding:12px 14px; }
   .gift-intro, .cards-grid{ padding:0 16px; }
 }
 
-@media (max-width:420px){
-  .card-img{ height:190px; }
-  .gift-intro, .cards-grid{ padding:0 14px; }
+@media (max-width:480px){
+  .card-body{
+    font-size: 0.8rem;
+  }
 }

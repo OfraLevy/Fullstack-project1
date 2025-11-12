@@ -1,86 +1,12 @@
-* {
-  box-sizing: border-box;
-}
 
-body {
-  margin: 0;
-  font-family: "Heebo", sans-serif;
-  direction: rtl;
-}
-
-
-.main-header {
-  display: flex;                 /* Flexbox */
-  justify-content: space-between; 
-  align-items: center;           
-  padding: 10px 40px;
-  background-color: #ffffff;
-}
-
-
-.header-right span {
-  font-weight: bold;
-  color: #585123;
-}
-
-.header-icon {
-  height: 30px;
-  width: auto;
-  margin-left: 15px;
-}
-
-
-.logo {
-  height: 70px;
-  width: auto;
-}
-
-
-/* NAVBAR */
-.main-nav {
-  background-color: #fdf7f2;    
-}
-
-.nav-list {
-  list-style: none; /*remove default bullets*/
-  margin: 0;/*remove spaces around the list*/
-  padding: 0 60px;
-  display: flex;
-  justify-content: center;            
-  align-items: center;
-}
-
-.nav-item {
-  padding: 14px 24px;
-  width: 17%;
-  font-size: 1.15rem;
-  text-align: center;  
-}
-
-/* Add border to the right of each nav item except the last one */
-.nav-item + .nav-item {
-  border-right: 1px solid #d6d6d6;   
-}
-
-
-.nav-item a {
-  text-decoration: none;
-  color: #3b3b3b;
-  font-weight: 500;
-}
-
-
-.nav-item a:hover {
-  color: #f58549;
-}
-
-
-#home_page_background {
+/* Home Page Background Image */
+#home_img_background {
   width: 100%;
   height: auto;
   display: block;
 }
 
+/* Info Section */
 .info-section {
   display: flex;
   justify-content: center;
@@ -90,20 +16,22 @@ body {
   padding: 40px 60px;
   color: #000;
   text-align: center;
+  flex-wrap: wrap;      
 }
 
 .info-box {
-  flex: 1;
   background-color: #8E982F;
   border-radius: 10px;
   padding: 30px 20px;
   transition: transform 0.3s ease;
+  width: 350px;
 }
 
 .info-box:hover {
   transform: translateY(-5px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
+
 
 .info-box h3 {
   color: #000;
@@ -156,6 +84,13 @@ body {
   transition: transform 0.3s ease;        
 }
 
+.spices-img {
+  width: 100%;           /*fill the card */
+  height: auto;          /* maintain aspect ratio */
+  border-radius: 6px;    /* harmony with the box */
+  display: block;        /* remove gaps below the image */
+  margin-bottom: 10px;   /* small gap below the image */
+}
 
 .deal-box:hover {
   transform: translateY(-5px); 
@@ -175,39 +110,4 @@ body {
   font-weight: bold;
   color: #f58549;
   margin-top: 5px;  
-}
-
-
-/*footer*/
-.main-footer {
-  text-align: center;     
-  padding: 20px 0;         
-  font-size: 1rem;       
-  color: #3b3b3b;         
-}
-
-.main-footer a {
-  text-decoration: none;
-  color: #3b3b3b;
-  margin: 0 5px;           
-}
-
-.main-footer a:hover {
-  color: #f58549;        
-}
-
-s {
-  color: #d7c7a9;
-}
-
-.gray {
-  color: #d7c7a9;
-}
-
-.spices-img {
-  width: 100%;           /*fill the card */
-  height: auto;          /* maintain aspect ratio */
-  border-radius: 6px;    /* harmony with the box */
-  display: block;        /* remove gaps below the image */
-  margin-bottom: 10px;   /* small gap below the image */
 }

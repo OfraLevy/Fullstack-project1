@@ -1,0 +1,125 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Heebo", sans-serif;
+  direction: rtl; /* hebrew */
+}
+
+
+.main-header {
+  display: flex;                 /* Flexbox */
+  justify-content: space-between; 
+  align-items: center;           
+  padding: 0px 40px;
+  background-color: #ffffff;
+}
+
+.header-icon {
+  height: 30px;
+  width: auto;
+  margin-left: 15px; /* space between icons */
+}
+
+.logo {
+  height: 70px;
+  width: auto;
+}
+
+/* NAVBAR */
+.main-nav {
+  background-color: #fdf7f2;    
+}
+
+.nav-list {
+  list-style: none; /*remove default bullets*/
+  margin: 0;/*remove spaces around the list*/
+  padding: 0 60px;
+  display: flex;
+  justify-content: center;            
+  align-items: center;
+}
+
+.nav-item {
+  padding: 14px 24px;
+  width: 17%;
+  font-size: 1.15rem;
+  text-align: center;  
+}
+
+/* Add border to the right of each nav item except the last one */
+.nav-item + .nav-item {
+  border-right: 1px solid #d6d6d6;   
+}
+
+.nav-item a { /* override default link styles */
+  text-decoration: none;
+  color: #3b3b3b;
+  font-weight: 500;
+}
+
+.nav-item a:hover {
+  color: #f58549;
+}
+
+
+
+
+/*footer*/
+.main-footer {
+  text-align: center;     
+  padding: 20px 0;         
+  font-size: 1rem;       
+  color: #3b3b3b;         
+}
+
+.main-footer a {
+  text-decoration: none;
+  color: #3b3b3b;
+  margin: 0 5px;           
+}
+
+.main-footer a:hover {
+  color: #f58549;        
+}
+
+
+/* ===== Responsive Navbar ===== */
+/* for tablets and small screens */
+@media (max-width: 800px) {
+
+  .nav-list {
+    flex-direction: column;     
+    padding: 0;
+  }
+
+  .nav-item {
+    width: 100%;                
+    padding: 12px 0;
+    border-bottom: 1px solid #d6d6d6;  
+    font-size: 1.05rem;
+  }
+
+  /* remove border to the right of each nav item except the last one */
+  .nav-item + .nav-item {
+    border-right: none  
+  }
+
+}
+
+/* for mobile phones */
+@media (max-width: 480px) {
+  .nav-item {
+    padding: 10px 0;
+  }
+
+  .header-icon {
+    height: 24px;
+    margin-left: 10px;
+  }
+
+  .logo {
+    height: 50px;
+  }
+}
