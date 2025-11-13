@@ -28,7 +28,10 @@ body {
 
 /* NAVBAR */
 .main-nav {
-  background-color: #fdf7f2;    
+  position: sticky;
+  top: 0;/* stick to the top */
+  z-index: 999;/* stay on top */
+  background-color: #fdf7f2;  
 }
 
 .nav-list {

@@ -65,7 +65,7 @@
 
 /* Card image */
 .card-img{
-  width: 40%;                  
+  width: auto;                  
   height: 240px;               
   border-radius: 14px;         /* Rounded image corners */
   box-shadow: 0 6px 18px rgba(0,0,0,.15);   /* offset-x offset-y blur-radius color*/
@@ -93,6 +93,10 @@
   color: #666;                 
   font-size: 1.12rem;          
   line-height: 1.6;          
+}
+strong a{
+  color: #f58549;              
+  text-decoration: none;       
 }
 
 /* Arrow icon */
