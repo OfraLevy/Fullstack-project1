@@ -29,7 +29,7 @@
         <li class="nav-item"><a href="catalog.html">המוצרים שלנו</a></li>
         <li class="nav-item"><a href="gift_boxes.html">מארזים ומתנות</a></li>
         <li class="nav-item"><a href="about_us.html">אודות</a></li>
-        <li class="nav-item"><a href="contact.html">יצירת קשר</a></li>
+        <li class="nav-item" id="cur_page"><a href="contact.html">יצירת קשר</a></li>
       </ul>
     </nav>
 
@@ -37,16 +37,15 @@
         <!-- Contact Form -->
         <div class="contact-section">
             <h1>צור קשר</h1>
-            <form action="#" method="post">
 
-            <!-- First name -->
+            <!-- Sending the data in the request body, the formdosn't send the data anywhere -->
+            <form action="#" method="post">  
+
             <label for="first-name">שם פרטי</label>
             <input type="text" id="first-name" name="first-name" placeholder="הכנס את שמך הפרטי" required>
 
-            <!-- Last name -->
             <label for="last-name">שם משפחה</label>
             <input type="text" id="last-name" name="last-name" placeholder="הכנס את שם המשפחה" required>
-
 
             <label for="email">אימייל</label>
             <input type="email" id="email" name="email" placeholder="הכנס את האימייל שלך" required>
@@ -64,7 +63,6 @@
         <!-- Image -->
         <img class="contact-image" src="../media/contantpage.png" alt="תבלינים">
     </section>
-
 
     <footer class="main-footer">
       <div class="footer-links">
