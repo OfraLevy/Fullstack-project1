@@ -1,181 +1,214 @@
 /* Active nav link */
-#cur_page a { color: #f58549; }
+#cur_page a { 
+  color: #f58549; 
+}
 
-/* ===== Page base ===== */
+/* Page container */
 .gift-page{
-  display:flex;
-  flex-direction:column;
-  align-items:stretch;
-  background:#f7f7f2;
+  display: flex;     
+  flex-direction: column;   
+  align-items: stretch;        /* Children expand to full width of container */
+  background: #f7f7f2; 
 }
 
-/* Intro */
+/* Intro section */
 .gift-intro{
-  max-width:1200px;
-  margin:32px auto 18px;
+  max-width: 1200px;    
+  margin: 50px auto 50px;      /* Center horizontally (auto), add top & bottom spacing */
 }
+
 .gift-intro h1{
-  color:#585123;
-  font-size:2.2rem;
-  margin:0 0 8px;
+  color: #585123;            
+  font-size: 2.2rem;           
+  margin: 0 0 8px;            
 }
+
 .gift-intro .gift-description{
-  color:#444;
-  font-size:1.08rem;
-  line-height:1.75;
-  margin:0;
+  color: #444;                 
+  font-size: 1.15rem;          
+  line-height: 1.9;                            
 }
 
 /* Cards list */
 .cards-grid{
-  display:flex;
-  flex-direction:column;
-  gap:22px;
-  max-width:1200px;
-  margin:0 auto 48px;
+  display: flex;               
+  flex-direction: column;      /* Stack cards vertically */
+  gap: 22px;                   
+  max-width: 1200px;           
+  margin: 0 auto 48px;         /* Center and add bottom spacing */
 }
 
-/* Single card */
+/* Single card styling */
 .gift-card{
-  width:100%;
-  background:#fff;
-  border-radius:16px;
-  box-shadow:0 12px 28px rgba(0,0,0,.12);
-  border:1px solid #eee;
-  transition:transform .15s ease, box-shadow .2s ease;
+  width: 100%;                 
+  background: #fff;            
+  border-radius: 16px;         /* Rounded corners */
+  box-shadow: 0 12px 28px rgba(0,0,0,.12);   /* offset-x offset-y blur-radius color (black)- Light shadow */
+  border: 1px solid #eee;    
+  transition: transform .15s ease, box-shadow .2s ease; /* <property> <duration> <timing-function>;*/
 }
+
 .gift-card:hover{ 
-  transform:translateY(-3px); 
-  box-shadow:0 16px 36px rgba(0,0,0,.16); 
+  transform: translateY(-3px);  /* The card jumps 3 pixels up (Y) */
+  box-shadow: 0 16px 36px rgba(0,0,0,.16);  /* Deeper shadow on hover */
 }
 
-/* Header (label) */
+/* Card header / clickable summary */
 .card-summary{
-  display:flex;
-  flex-direction:row-reverse; /* RTL: text right, image left */
-  align-items:stretch;
-  gap:20px;
-  padding:18px;
-  padding-right:26px; /* extra space so arrow won't clip */
+  display: flex;               
+  flex-direction: row-reverse; /* text right, image left */
+  align-items: stretch;        /* Stretch children vertically */
+  gap: 20px;                   /* Space between image, text, arrow */
+  padding: 18px;               
+  padding-right: 26px;         /* Extra space for the arrow */
 }
 
+/* Card image */
 .card-img{
-  width:40%;
-  height:240px;
-  border-radius:14px;
-  box-shadow:0 6px 18px rgba(0,0,0,.15);
+  width: 40%;                  
+  height: 240px;               
+  border-radius: 14px;         /* Rounded image corners */
+  box-shadow: 0 6px 18px rgba(0,0,0,.15);   /* offset-x offset-y blur-radius color*/
 }
 
+/* Card text content */
 .card-head{
-  flex:1 1 auto;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  gap:8px;
+
+  /* It grows to fill available space, shrinks if needed, 
+  and its base size is determined by its content. */
+  flex: 1 1 auto;              
+  display: flex;
+  flex-direction: column;
+  justify-content: center;     /* Center text vertically */
 }
+
 .card-head h3{
-  font-size:1.5rem;
-  color:#772F1A;
-  margin:0;
+  font-size: 1.5rem;           
+  color: #772F1A;              
+  margin: 6px 0px;                   
 }
+
 .card-description{
-  margin:0;
-  color:#666;
-  font-size:1.02rem;
-  line-height:1.6;
+  margin: 0;                   
+  color: #666;                 
+  font-size: 1.12rem;          
+  line-height: 1.6;          
 }
 
-/* Arrow as image */
+/* Arrow icon */
 .arrow-icon{
-  order:3;/* so it appears last when the screen is small */
-  align-self:center;
-  width:20px;
-  height:20px;
-  transition:transform .25s ease;
+  order: 3;             /* Appears last on small screens after the photo and text*/
+  align-self: center;          
+  width: 25px;                  
+  height: 25px;                 
+  transition: transform .25s ease;  /* Smooth rotation when card opens */
 }
 
-/* Hidden checkbox controller */
-.card-toggle{ display:none; }
+/* Hidden checkbox controller*/
+.card-toggle{ 
+  display: none;               
+}
 
-/* Body default hidden */
+/* Card body hidden by default */
 .card-body{ 
-  display:none;
-  padding:0 25px 22px;
+  display: none;                
+  padding: 0 25px 22px;      
 }
 
-/* Open state: show body + rotate arrow */
+/* Show the correct body and rotate arrow when checkbox is checked */
 .card-toggle:checked ~ .card-body{
-  display:block;
-  animation: drop .18s ease-out;
+  display: block;               /* Reveal hidden content */
+  animation: drop .22s ease-out; /* Animate appearance */
 }
+
 .card-toggle:checked + .card-summary .arrow-icon{
-  transform: rotate(90deg);
+  transform: rotate(90deg);     /* Rotate arrow 90° to indicate open state */
 }
 
+/* Drop animation for card body */
 @keyframes drop{
-  from{ opacity:0; transform:translateY(-4px); }
-  to  { opacity:1; transform:translateY(0); }
+  from { transform: translateY(-10px); } /* start above 5px*/
+  to   { transform: translateY(0); }     /* end at normal position */
 }
 
-/* Table */
+/* Table styling */
 .gift-card .gift-table{
-  width:100%;
-  border-collapse:collapse;
+  width: 100%;                  
 }
+
 .gift-card .gift-table th,
 .gift-card .gift-table td{
-  border-bottom:1px solid #eee;
-  padding:12px 10px;
-  text-align:right;
+  border-bottom: 1px solid #eee; 
+  padding: 12px 10px;            
+  text-align: right;              
 }
+
+/* The headers of the table */
 .gift-card .gift-table thead th{
-  background:#fdf7f2;
-  color:#585123;
-  font-weight:700;
+  background: #fff6d0;          
+  color: #585123;                 
+  font-weight: 750;               
 }
+
 .gift-card .gift-table tfoot th{
-  background:#fff3e9;
-  color:#3b3b3b;
-  font-size:1.08rem;
+  background: #fff6d0;            
+  color: #3b3b3b;                 
+  font-size: 1.08rem;           
 }
-.gift-card .gift-table .row-sub td{ color:#777; }
-.gift-card .gift-table .row-discount td{ color:#f58549; }
 
-/* CTA */
+.gift-card .gift-table .row-sub td{ 
+  color: #777;                   /* Gray for subtotals / extra info */
+}
+
+/* Add button */
 .btn-primary{
-  width:100%;
-  border:none;
-  border-radius:12px;
-  padding:14px 16px;
-  font-size:1.05rem;
-  font-weight:700;
-  background:#f58549;
-  color:#fff;
-  transition:filter .15s ease, transform .06s ease;
-  box-shadow:0 8px 18px rgba(245,133,73,.3);
-}
-.btn-primary:hover{
-   background: #f59764; 
-  }
-.btn-primary:active{
-   transform:translateY(1px);
+  width: 100%;           
+  border: none;                  
+  border-radius: 12px;           
+  padding: 14px 16px;            
+  font-size: 1.05rem;            
+  font-weight: 700;              
+  background: #772F1A;          
+  color: #fff;  
+  
+  /* Makes design changes (highlighting) happen smoothly.
+  Makes the button “respond softly” when the mouse is hovered over it */
+  transition: filter .15s ease;   
+  box-shadow: 0 8px 18px rgba(185, 139, 47, 0.3);       
 }
 
-/* Responsive */
+.btn-primary:hover{
+   background: #9b4d36;      
+}
+
+/* Responsive styles */
 @media (max-width: 800px){
   .card-summary{
-    flex-direction:column;
+    flex-direction: column;     /* Stack everything vertically */
   }
   .card-img{
-    width:90%;
-    height:auto;
-    align-self: center;
+    width: 90%;                 
+    height: auto;               
+    align-self: center;         /* Center image horizontally */
   }
-  .gift-intro, .cards-grid{ padding:0 16px; }
+  .gift-intro, .cards-grid{ 
+    padding: 0 16px;            
+    
+  }
+  .gift-card .gift-table td{
+    font-size: 0.8rem;  
+  }
+  .gift-card .gift-table th{
+    font-size: 1rem; 
+  }
+  .gift-card .gift-table tfoot th {
+    font-size: 1rem;
+  }
 }
 
-@media (max-width:480px){
+@media (max-width: 480px){
   .card-body{
-    font-size: 0.8rem;
+    font-size: 0.8rem;          
+    
   }
 }

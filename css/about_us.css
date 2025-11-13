@@ -1,204 +1,235 @@
-/* ===== בסיס עיצוב ===== */
-#cur_page a {
-  color: #f58549;
+/* Base design setup */
+:root {
+  --maintext_color: #2e2e2e;   /* Main text color */
+  --muted_color: #6b6b6b;      /* Secondary or muted text color */
+  --customer_card_color: #ffffff;  /* Color for cards */
+  --page_color:  #f7f7f2;       /* General page background color */
+  --titles_color: #585123;     /* titles */
+  --special_color: #f58549;    /* highlights, buttons, arrows */
+  --shadow: 0 10px 30px rgba(0,0,0,.08);  /* Light box shadow for panels/cards */
 }
-:root{
-  --ink:#2e2e2e;
-  --muted:#6b6b6b;
-  --panel:#ffffff;
-  --bg:#f7f7f2;
-  --accent:#585123;   /* כותרות */
-  --accent2:#f58549;  /* הדגשות */
-  --shadow:0 10px 30px rgba(0,0,0,.08);
-}
-html{ scroll-behavior:smooth; }
-.about{ background:var(--bg); }
 
-/* כותרת עמוד */
-.hero{
-  max-width:1100px;
-  margin:28px auto 8px;
-  padding:0 18px;
-  text-align:right;
-}
-.hero h1{
-  color:var(--accent);
-  font-size:2.2rem;
-  margin:0 0 8px;
-  font-weight:800;
-}
-.hero p{
-  color:var(--muted);
+html { scroll-behavior:smooth; }   /* Smooth scrolling by clicking on a tag */
+
+.about{ 
+  background:var(--page_color);
   margin:0;
-  font-size:1.05rem;
+  padding: 0 0 30px 0; 
 }
 
-/* ===== פריסת שני טורים: תוכן + סרגל ימין ===== */
-/* ===== פריסת שני טורים: סרגל ימין + תוכן ===== */
-.about-grid{
-  max-width:1100px;
+#cur_page a{ 
+  color: var(--special_color);
+}
+
+/* Page title section */
+.page-intro {
+  max-width:1200px;
+  margin: 0 auto 8px;      
+  padding: 40px 18px 20px;  
+  text-align:right;
+  color:var(--muted_color);
+}
+
+.page-intro p {
+  margin:0;
+  font-size:1.2rem;
+}
+
+/* Two-column layout: content + right sidebar */
+.about-grid {
+  max-width:1200px;
   margin:12px auto 40px;
-  padding:0 18px;
+  padding-left:18px;
+  padding-right:0;
   display:grid;
-  grid-template-columns: 240px 1fr; /* עכשיו סרגל מימין */
-  grid-template-areas: "toc content";
-  gap:28px;
+  grid-template-columns:200px 1fr; /* right sidebar */
+  grid-template-areas:"toc content";
+  gap:20px;
   align-items:start;
 }
-.toc{ grid-area: toc; }
-.content{ grid-area: content; }
+.toc { grid-area: toc; }
+.content { grid-area: content; }
 
-
-/* סרגל צד ימין – נקי, ללא עיגולים */
-.toc{
+/* Sticky right sidebar */
+.toc {
   position:sticky;
-  top:84px;                 /* התאימי לגובה ההדר שלך */
-  align-self:start;
+  top:84px;
   display:flex;
   flex-direction:column;
   gap:6px;
 }
-.toc a{
+.toc a {
   display:block;
-  padding:10px 12px;
-  border-right:3px solid transparent; /* RTL פס הדגשה */
+  padding:8px 10px;
+  border-right:3px solid transparent; /* RTL highlight bar */
   color:#6b6b6b;
   text-decoration:none;
   font-weight:600;
 }
-.toc a:hover{ color:#3b3b3b; }
+.toc a:hover { color:#3b3b3b; }
 
-/* === הדגשת סעיף פעיל באמצעות :target וללא JS === */
-/* כשיש עוגן פעיל – הדגש את הקישור המתאים */
-#story:target ~ .toc a[href="#story"],
-#today:target ~ .toc a[href="#today"],
-#testimonials:target ~ .toc a[href="#testimonials"],
-#video:target ~ .toc a[href="#video"]{
-  color:var(--accent);
-  border-right-color:var(--accent2);
-  background:#fff;
-  box-shadow:var(--shadow);
+/* Highlight active section using :has (no JS)  */
+.about-grid:not(:has(:target)) .toc a[href="#story"],
+.about-grid:has(#story:target) .toc a[href="#story"],
+.about-grid:has(#today:target) .toc a[href="#today"],
+.about-grid:has(#video:target) .toc a[href="#video"] {
+  color: var(--titles_color);
+  border-right-color: var(--special_color);
+  background: #fff;
+  box-shadow: var(--shadow);
 }
 
-/* מצב פתיחה (כשאין #target) – הדגש את הראשון כברירת מחדל */
-.about-grid:not(:has(:target)) .toc a[href="#story"]{
-  color:var(--accent);
-  border-right-color:var(--accent2);
-  background:#fff;
-  box-shadow:var(--shadow);
-}
+/* Keep section title visible after jump */
+section[id] { scroll-margin-top: 100px; }
 
-/* שמירת הכותרת גלויה בכל קפיצה לעוגן */
-section[id]{ scroll-margin-top: 100px; }
-
-/* ===== מקטעים מפוצלים – תמונה מול טקסט ===== */
-.split{
+/* Split layout: image + text */
+.split {
   margin:0 0 40px;
   display:grid;
-  grid-template: 1.15fr 1fr 1fr 1.15fr; /* טקסט מעט רחב יותר */
+  grid-template: 1.15fr 1fr 1fr 1.15fr;
   gap:24px;
   align-items:center;
 }
-.split-right .text{ grid-column:1; }
-.split-right .media{ grid-column:2; }
-.split-left  .media{ grid-column:1; }
-.split-left  .text{ grid-column:2; }
+.split-right .text { grid-column:1; }
+.split-right .media { grid-column:2; }
+.split-left  .media { grid-column:1; }
+.split-left  .text  { grid-column:2; }
 
-.split .text h2{
-  color:var(--accent);
+.split .text h2 {
+  color:var(--titles_color);
   font-size:1.8rem;
   margin:0 0 10px;
 }
-.split .text .lead{
+.split .text .lead {
   font-size:1.08rem;
-  color:var(--ink);
+  color:var(--maintext_color);
   line-height:1.9;
 }
-.split .text p{ color:#3c3c3c; line-height:1.9; }
-.split .text strong{ color:var(--accent2); }
+.split .text p { color:#3c3c3c; line-height:1.9; }
+.split .text strong { color:var(--special_color); }
 
-.split-right .media img{
+/* Images inside split sections */
+.split-right .media img,
+.split-left img {
   width:100%;
-  height:360px;
   object-fit:cover;
   border-radius:14px;
   box-shadow:var(--shadow);
   display:block;
 }
-
-.split-left img{
-  width: 300px;
+.split-right .media img { height:360px; }
+.split-left img {
+  width:300px;
   height:100%;
-  object-fit:cover;
-  border-radius:14px;
-  box-shadow:var(--shadow);
-  display:block;
-  margin-left: 15px;
+  margin-left:15px;
 }
+.split-left .text { align-self:start; }
 
-.split-left .text{
-  align-self: start;
-}
-
-.bullets{
+/* Bullet list styling */
+.bullets {
   margin:10px 0 0;
   padding:0 1.2em 0 0;
   color:#3c3c3c;
 }
-.bullets li{ margin:6px 0; }
+.bullets li { margin:6px 0; }
 
-/* לקוחות ממליצים */
-.testimonials{
+.customers {
   max-width:1100px;
   margin:0 auto 44px;
   padding:0 18px;
 }
-.testimonials h2{
-  color:var(--accent);
+.customers h2 {
+  color:var(--titles_color);
   font-size:1.8rem;
   margin:0 0 14px;
 }
-.cards{
+.cards {
   display:grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap:16px;
 }
-.tcard{
-  background:var(--panel);
+.tcard {
+  background:var(--customer_card_color);
   border:1px solid #eee6d9;
   border-radius:14px;
   padding:16px;
   box-shadow:var(--shadow);
 }
-.tcard-head{
+.tcard-head {
   display:flex;
   align-items:center;
   gap:10px;
   margin-bottom:8px;
 }
-.avatar{
-  width:44px; height:44px;
+.avatar {
+  width:44px;
+  height:44px;
   border-radius:999px;
   object-fit:cover;
   background:#f2e9dd;
 }
-.tcard h3{ margin:0; color:#2e2e2e; font-size:1.05rem; }
-.tcard .meta{ font-size:.9rem; color:var(--muted); }
-.tcard p{ margin:0; color:#3b3b3b; line-height:1.7; }
-.more summary{
-  margin-top:8px;
-  cursor:pointer;
-  color:var(--accent2);
-  font-weight:600;
+.tcard h3 { margin:0; color:#2e2e2e; font-size:1.05rem; }
+.tcard .meta { font-size:.9rem; color:var(--muted_color); }
+.tcard p { margin:0; color:#3b3b3b; line-height:1.7; }
+
+
+/* Hide the checkbox */
+.more-toggle {
+  display: none;
 }
 
-/* ===== וידאו ===== */
-.video h2{
-  color:var(--accent);
+/* Style for the "More" button/label */
+.more-label {
+  display: inline-block;
+  margin-top: 8px;
+  cursor: pointer;
+  color: var(--special_color);
+  font-weight: 600;
+}
+
+/* Additional text is hidden by default */
+.more-text {
+  display: none;
+  margin-top: 6px;
+  color: #3b3b3b;
+  line-height: 1.7;
+}
+
+/* Show the text when the checkbox is checked */
+.more-toggle:checked + .more-label + .more-text {
+  display: block;
+}
+
+
+/* Highlight active section using :has (no JS)  */
+.about-grid:not(:has(:target)) .toc a[href="#story"],
+.about-grid:has(#story:target) .toc a[href="#story"],
+.about-grid:has(#today:target) .toc a[href="#today"],
+.about-grid:has(#customers:target) .toc a[href="#customers"],
+.about-grid:has(#video:target) .toc a[href="#video"] {
+  color: var(--titles_color);
+  border-right-color: var(--special_color);
+  background: #fff;
+  box-shadow: var(--shadow);
+}
+
+/* Mobile highlight update */
+.about-grid:has(#story:target) .toc a[href="#story"],
+.about-grid:has(#today:target) .toc a[href="#today"],
+.about-grid:has(#customers:target) .toc a[href="#customers"],
+.about-grid:has(#video:target) .toc a[href="#video"]{
+  border-bottom-color:var(--special_color);
+  box-shadow:none;
+  background:transparent;
+}
+
+/* Video section */
+.video h2 {
+  color:var(--titles_color);
   font-size:1.8rem;
   margin:0 0 12px;
 }
-.video video, .video iframe{
+.video video, .video iframe {
   width:100%;
   aspect-ratio:16/9;
   background:#000;
@@ -206,16 +237,39 @@ section[id]{ scroll-margin-top: 100px; }
   box-shadow:var(--shadow);
 }
 
-/* ===== מובייל ===== */
+/* Map section styling */
+.map-section {
+  max-width: 100%;
+  padding: 50px 50px;
+  text-align: center;
+  background-color: var(--page_color);
+}
+
+.map-section h2 {
+  margin: 0 0 40px 0;
+  font-size: 1.8rem;
+  color: var(--titles_color);
+}
+
+.map-section iframe {
+  width: 100%;
+  height: 400px;
+  border: 0;
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+}
+
+/* Responsive design (mobile) */
 @media (max-width:900px){
-  .about-grid{
-    grid-template-columns: 1fr;
+  .about-grid {
+    grid-template-columns:1fr;
     grid-template-areas:
       "toc"
       "content";
-    gap:16px;
+    gap:12px;
+    padding-right:12px;
   }
-  .toc{
+  .toc {
     position:sticky;
     top:64px;
     flex-direction:row;
@@ -223,80 +277,22 @@ section[id]{ scroll-margin-top: 100px; }
     padding:8px 0;
     border-top:1px solid #eceae4;
     border-bottom:1px solid #eceae4;
-    background:var(--bg);
+    background:var(--page_color);
   }
-  .toc a{ border-right:none; border-bottom:3px solid transparent; }
-  /* הדגשה במובייל לפי :target */
-  #story:target ~ .toc a[href="#story"],
-  #today:target ~ .toc a[href="#today"],
-  #testimonials:target ~ .toc a[href="#testimonials"],
-  #video:target ~ .toc a[href="#video"]{
-    border-bottom-color:var(--accent2);
+  .toc a {
+    border-right:none;
+    border-bottom:3px solid transparent;
+    padding:8px 8px;
+  }
+  /* Highlight active section in mobile layout */
+  .about-grid:has(#story:target) .toc a[href="#story"],
+  .about-grid:has(#today:target) .toc a[href="#today"],
+  .about-grid:has(#video:target) .toc a[href="#video"]{
+    border-bottom-color:var(--special_color);
     box-shadow:none;
     background:transparent;
   }
-  .split{ grid-template-columns:1fr; }
-  .split .media img{ height:240px; }
-  .hero h1{ font-size:1.9rem; }
+  .split { grid-template-columns:1fr; }
+  .split .media img { height:240px; }
+  .page-intro h1 { font-size:1.9rem; }
 }
-
-/* --- 1) מקרב את הסרגל לצד ימין ומקטין ריווחים --- */
-.hero,
-.about-grid{
-  max-width: 1200px;
-}
-
-/* פחות padding מימין – שהסרגל יתקרב לקצה */
-.about-grid{
-  padding-right: 0;       /* היה 18px */
-  padding-left: 18px;
-  grid-template-columns: 200px 1fr; /* היה 240px */
-  gap: 20px;                          /* היה 28px */
-}
-
-/* טקסט הכותרת נשאר מיושר יפה */
-.hero{ padding-right: 0; }
-
-/* קצת פחות padding לכל פריט בתוכן העניינים */
-.toc a{ padding: 8px 10px; }
-
-/* --- 2) הדגשת סעיף פעיל בלי JS (באמצעות :has) --- */
-/* דיפולט: אם אין עוגן בכתובת – מדגישים את הראשון */
-.about-grid:not(:has(:target)) .toc a[href="#story"]{
-  color: var(--accent);
-  border-right-color: var(--accent2);
-  background: #fff;
-  box-shadow: var(--shadow);
-}
-
-/* כשאחד הסקשנים ביעד – הדגש את הקישור המתאים */
-.about-grid:has(#story:target) .toc a[href="#story"],
-.about-grid:has(#today:target) .toc a[href="#today"],
-.about-grid:has(#testimonials:target) .toc a[href="#testimonials"],
-.about-grid:has(#video:target) .toc a[href="#video"]{
-  color: var(--accent);
-  border-right-color: var(--accent2);
-  background: #fff;
-  box-shadow: var(--shadow);
-}
-
-/* שיהיה תמיד מקום לכותרת אחרי קפיצה לעוגן */
-section[id]{ scroll-margin-top: 100px; }
-
-/* מובייל – שומר על הדגשה גם בתצורה האופקית */
-@media (max-width:900px){
-  .about-grid{
-    padding-right: 12px;  /* מעט מרווח בצד ימין במסכים צרים */
-    gap: 12px;
-  }
-  .toc a{ padding: 8px 8px; }
-  .about-grid:has(#story:target) .toc a[href="#story"],
-  .about-grid:has(#today:target) .toc a[href="#today"],
-  .about-grid:has(#testimonials:target) .toc a[href="#testimonials"],
-  .about-grid:has(#video:target) .toc a[href="#video"]{
-    border-bottom-color: var(--accent2);
-    box-shadow: none;
-    background: transparent;
-  }
-}
-

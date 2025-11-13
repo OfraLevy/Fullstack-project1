@@ -2,9 +2,11 @@
 <html lang="he" dir="rtl">
   <head>
     <meta charset="utf-8" />
+
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/about_us.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google font -->
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
     <title>נגר תבלינים | אודות</title>
   </head>
@@ -12,8 +14,11 @@
   <body id="top">
     <header class="main-header">
       <div class="header-left">
-        <a href="index.html"><img src="../media/nagarlogo.png" alt="לוגו נגר תבלינים" class="logo"/></a>
+        <a href="index.html">
+          <embed src="../media/nagarlogo.png" type="image/png" class="logo-embed" />
+        </a>
       </div>
+
       <div class="header-right">
         <img src="../media/user.png" alt="User Icon" class="header-icon"/>
         <img src="../media/shopping-bag.png" alt="Shopping Bag Icon" class="header-icon"/>
@@ -31,17 +36,16 @@
     </nav>
 
     <main class="about">
-      <section class="hero">
-        <h1>אודות</h1>
+      <!-- Page-intro intro text -->
+      <section class="page-intro">
         <p>המסע שלנו מתבל קהילות, מטבחים וסיפורים. כאן תמצאו את ההתחלה, את ההיום – וגם מה הלקוחות מספרים.</p>
       </section>
 
-      <!-- פריסת שני טורים: התוכן (משמאל) + סרגל תוכן העניינים (מימין).
-           בדום התוכן מופיע קודם כדי שנוכל להדגיש קישור לפי :target בעזרת ~ -->
+      <!-- Two-column layout: content (left) + sticky table of contents (right) -->
       <div class="about-grid">
-        <!-- תוכן -->
+        <!-- Main content column -->
         <div class="content">
-          <!-- הסיפור שלנו -->
+          <!-- Our Story section -->
           <section id="story" class="split split-right">
             <div class="text">
               <h2>הסיפור שלנו</h2>
@@ -62,7 +66,7 @@
             </div>
           </section>
 
-          <!-- כיום -->
+          <!-- Today section -->
           <section id="today" class="split split-left">
             <div class="media">
               <img src="../media/aboutus_2.jpg" alt="מדפים מלאים תבלינים">
@@ -84,59 +88,64 @@
             </div>
         </section>
 
-                <!-- לקוחות ממליצים -->
-        <section id="testimonials" class="testimonials">
-            <h2>לקוחות ממליצים</h2>
+        <!-- Customers section -->
+        <section id="customers" class="customers">
+          <h2>לקוחות ממליצים</h2>
 
-            <div class="cards">
-            <article class="tcard">
+          <!-- Customer cards -->
+          <div class="cards">
+              <article class="tcard">
                 <div class="tcard-head">
-                <img src="../media/user.png" alt="" class="avatar" />
-                <div>
-                    <h3>דניאל מ.</h3>
-                    <span class="meta">חיפה • קונה קבוע</span>
-                </div>
+                    <img src="../media/user.png" alt="" class="avatar" />
+                    <div>
+                        <h3>דניאל מ.</h3>
+                        <span class="meta">חיפה • קונה קבוע</span>
+                    </div>
                 </div>
                 <p>
                 “ברגע שהכנסתי את תערובת הראס-אל-חנות לסיר – כל הבית הריח. תודה על הסבלנות והטיפים,
                 חוויה של שירות.”
                 </p>
-                <details class="more"><summary>עוד</summary>
-                <p>המשלוח הגיע מהר, האריזה איכותית, והכי חשוב – הטעם חד ומדויק. ממליץ מאוד.</p>
-                </details>
-            </article>
 
-            <article class="tcard">
-                <div class="tcard-head">
-                <img src="../media/aboutus_userpic1.png" alt="" class="avatar" />
-                <div>
-                    <h3>טליה ר.</h3>
-                    <span class="meta">ירושלים • חובבת אפייה</span>
-                </div>
-                </div>
-                <p>
-                “הקינמון שלכם זה סיפור אהבה. מאז שהתחלתי להשתמש – כל עוגת שמרים מרגישה מאפייה מקצועית.”
+                <!-- Checkbox toggle -->
+                <input type="checkbox" id="more" class="more-toggle" />
+                <label for="more" class="more-label">עוד</label>
+                <p class="more-text">
+                  המשלוח הגיע מהר, האריזה איכותית, והכי חשוב – הטעם חד ומדויק. ממליץ מאוד.
                 </p>
-            </article>
+              </article>
 
-            <article class="tcard">
-                <div class="tcard-head">
-                <img src="../media/aboutus_userpic3.png" alt="" class="avatar" />
-                <div>
-                    <h3>עמית ש.</h3>
-                    <span class="meta">ת״א • שף ביתי</span>
-                </div>
-                </div>
-                <p>
-                “תערובות מדויקות, מחירים הוגנים, ושירות של אנשים שאכפת להם. זה כל מה שצריך.”
-                </p>
-            </article>
-            </div>
+              <article class="tcard">
+                  <div class="tcard-head">
+                      <img src="../media/aboutus_userpic1.png" alt="" class="avatar" />
+                      <div>
+                          <h3>טליה ר.</h3>
+                          <span class="meta">ירושלים • חובבת אפייה</span>
+                      </div>
+                  </div>
+                  <p>
+                  “הקינמון שלכם זה סיפור אהבה. מאז שהתחלתי להשתמש – כל עוגת שמרים מרגישה מאפייה מקצועית.”
+                  </p>
+              </article>
+
+              <article class="tcard">
+                  <div class="tcard-head">
+                      <img src="../media/aboutus_userpic3.png" alt="" class="avatar" />
+                      <div>
+                          <h3>עמית ש.</h3>
+                          <span class="meta">ת״א • שף ביתי</span>
+                      </div>
+                  </div>
+                  <p>
+                  “תערובות מדויקות, מחירים הוגנים, ושירות של אנשים שאכפת להם. זה כל מה שצריך.”
+                  </p>
+              </article>
+          </div>
         </section>
 
-          <!-- וידאו -->
-          <section id="video" class="video">
-            <h2>סרטון על החנות</h2>
+        <!-- Store video section -->
+        <section id="video" class="video">
+          <h2>סרטון על החנות</h2>
             <video controls poster="../media/Cinimon-tacun.jpg">
               <source src="../media/spices.mp4" type="video/mp4">
               הדפדפן שלך אינו תומך בווידאו.
@@ -144,7 +153,8 @@
           </section>
         </div>
 
-        <!-- סרגל תוכן עניינים (מימין ו-Sticky). ההדגשה נעשית ב-CSS דרך :target -->
+
+        <!-- Sticky table of contents on the right; highlighting via CSS :target -->
         <nav class="toc" aria-label="תוכן עניינים">
           <a href="#story">הסיפור שלנו</a>
           <a href="#today">כיום</a>
@@ -154,6 +164,15 @@
         </nav>
       </div>
     </main>
+
+    <!-- Google Maps embedded section -->
+    <section class="map-section">
+      <h2>בואו לבקר אותנו בחנות - רחוב הרצל 10 תל אביב</h2>
+      <iframe
+        src="https://www.google.com/maps?q=רחוב+הרצל+10,+תל+אביב&hl=iw&z=15&output=embed">
+      </iframe>
+    </section>
+
 
     <footer class="main-footer">
       <div class="footer-links">

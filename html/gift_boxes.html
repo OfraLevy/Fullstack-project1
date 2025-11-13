@@ -12,8 +12,11 @@
   <body>
     <header class="main-header">
       <div class="header-left">
-        <a href="index.html"><img src="../media/nagarlogo.png" alt="לוגו נגר תבלינים" class="logo"/></a>
+        <a href="index.html">
+          <embed src="../media/nagarlogo.png" type="image/png" class="logo-embed" />
+        </a>
       </div>
+
       <div class="header-right">
         <img src="../media/user.png" alt="User Icon" class="header-icon"/>
         <img src="../media/shopping-bag.png" alt="Shopping Bag Icon" class="header-icon"/>
@@ -30,6 +33,7 @@
       </ul>
     </nav>
 
+
     <main class="gift-page">
       <section class="gift-intro">
         <h1>מארזים ומתנות</h1>
@@ -42,8 +46,11 @@
       </section>
 
       <section class="cards-grid">
-        <!-- ===== Card 1 ===== -->
+
+        <!--Card 1 -->
         <section class="gift-card">
+
+          <!-- Hidden checkbox controls open/close state -->
           <input type="checkbox" id="card1" class="card-toggle" aria-controls="card1-body">
           <label for="card1" class="card-summary">
             <img src="../media/gift_box1.jpg" alt="מארז תבליני הבית" class="card-img">
@@ -55,31 +62,36 @@
                 הסט הבסיסי לכל מטבח: טרי, נקי, שווה ובמחיר ידידותי.
               </p>
             </div>
+
+            <!-- The arrow -->
             <img src="../media/down-arrow.png" alt="" class="arrow-icon" aria-hidden="true">
           </label>
 
+          <!-- Hidden body revealed when checkbox is checked -->
           <div class="card-body" id="card1-body">
             <table class="gift-table">
               <thead>
                 <tr><th>מוצר</th><th>כמות</th><th>מחיר יח'</th><th>סה״כ</th></tr>
               </thead>
               <tbody>
-                <tr><td>מלח מתובל של נגר 50ג'</td><td>1</td><td>₪9.90</td><td>₪9.90</td></tr>
-                <tr><td>תערובת הקציצות שלנו 50ג'</td><td>2</td><td>₪6.90</td><td>₪13.80</td></tr>
-                <tr><td>תערובת הדגים שלנו 50ג'</td><td>1</td><td>₪8.90</td><td>₪8.90</td></tr>
-                <tr><td>תערובת גניש 100ג'</td><td>1</td><td>₪14.90</td><td>₪14.90</td></tr>
-                <tr><td>תערובת ברביקיו 100ג'</td><td>1</td><td>₪14.90</td><td>₪14.90</td></tr>
+                <tr><td>מלח מתובל 50 ג'</td><td>1</td><td>₪9.90</td><td>₪9.90</td></tr>
+                <tr><td>תערובת קציצות 50 ג'</td><td>2</td><td>₪6.90</td><td>₪13.80</td></tr>
+                <tr><td>תערובת דגים 50 ג'</td><td>1</td><td>₪8.90</td><td>₪8.90</td></tr>
+                <tr><td>תערובת גניש 100 ג'</td><td>1</td><td>₪14.90</td><td>₪14.90</td></tr>
+                <tr><td>תערובת ברביקיו 100 ג'</td><td>1</td><td>₪14.90</td><td>₪14.90</td></tr>
                 <tr class="row-sub"><td>אריזת מתנה</td><td>—</td><td>₪5.00</td><td>₪5.00</td></tr>
-                <tr class="row-discount"><td>הנחת מארז</td><td>—</td><td>-₪10.00</td><td>-₪10.00</td></tr>
+                
               </tbody>
-              <tfoot><tr><th colspan="3">סה״כ לתשלום</th><th>₪52.40</th></tr></tfoot>
+              <tfoot><tr><th colspan="3">סה״כ לתשלום</th><th>₪62.40</th></tr></tfoot>
             </table>
             <button class="btn-primary">הוסף לסל</button>
           </div>
         </section>
 
-        <!-- ===== Card 2 ===== -->
+        <!--Card 2-->
         <section class="gift-card">
+
+          <!-- Hidden checkbox controls open/close state -->
           <input type="checkbox" id="card2" class="card-toggle" aria-controls="card2-body">
           <label for="card2" class="card-summary">
             <img src="../media/gift_box2.jpg" alt="חבילת אוהבי חריף" class="card-img">
@@ -90,31 +102,35 @@
                 אפשר להוסיף תיבול גם אחרי שהמנה מוכנה ולהתאים את החריפות בדיוק לטעם שלכם.
               </p>
             </div>
+            <!-- The arrow -->
             <img src="../media/down-arrow.png" alt="" class="arrow-icon" aria-hidden="true">
           </label>
 
+          <!-- Hidden body revealed when checkbox is checked -->
           <div class="card-body" id="card2-body">
             <table class="gift-table">
               <thead>
                 <tr><th>מוצר</th><th>כמות</th><th>מחיר יח'</th><th>סה״כ</th></tr>
               </thead>
               <tbody>
-                <tr><td>מלח צ'ילי 100ג'</td><td>1</td><td>₪7.90</td><td>₪7.90</td></tr>
-                <tr><td>צ'ילי מקסיקני 100ג'</td><td>1</td><td>₪16.90</td><td>₪16.90</td></tr>
-                <tr><td>מיקס הפלפל של נגר 50ג'</td><td>1</td><td>₪7.90</td><td>₪7.90</td></tr>
-                <tr><td>תערובת מרקש 50ג'</td><td>1</td><td>₪9.90</td><td>₪9.90</td></tr>
-                <tr><td>טבסקו יבש 50ג'</td><td>1</td><td>₪8.00</td><td>₪8.00</td></tr>
+                <tr><td>מלח צ'ילי 100 ג'</td><td>1</td><td>₪7.90</td><td>₪7.90</td></tr>
+                <tr><td>צ'ילי מקסיקני 100 ג'</td><td>1</td><td>₪16.90</td><td>₪16.90</td></tr>
+                <tr><td>מיקס הפלפל של נגר 50 ג'</td><td>1</td><td>₪7.90</td><td>₪7.90</td></tr>
+                <tr><td>תערובת מרקש 50 ג'</td><td>1</td><td>₪9.90</td><td>₪9.90</td></tr>
+                <tr><td>טבסקו יבש 50 ג'</td><td>1</td><td>₪8.00</td><td>₪8.00</td></tr>
                 <tr class="row-sub"><td>אריזת מתנה</td><td>—</td><td>₪3.00</td><td>₪3.00</td></tr>
-                <tr class="row-discount"><td>הנחת מארז</td><td>—</td><td>-₪10.00</td><td>-₪10.00</td></tr>
+                
               </tbody>
-              <tfoot><tr><th colspan="3">סה״כ לתשלום</th><th>₪43.60</th></tr></tfoot>
+              <tfoot><tr><th colspan="3">סה״כ לתשלום</th><th>₪53.60</th></tr></tfoot>
             </table>
             <button class="btn-primary">הוסף לסל</button>
           </div>
         </section>
 
-        <!-- ===== Card 3 ===== -->
+        <!-- Card 3 -->
         <section class="gift-card">
+
+          <!-- Hidden checkbox controls open/close state -->
           <input type="checkbox" id="card3" class="card-toggle" aria-controls="card3-body">
           <label for="card3" class="card-summary">
             <img src="../media/gift_box3.jpg" alt="חבילת מאוהבים בקינמון" class="card-img">
@@ -125,30 +141,34 @@
                 תיבול שמעניק לאפייה ולתבשילים ניחוח ביתי עמוק.
               </p>
             </div>
+            <!-- The arrow -->
             <img src="../media/down-arrow.png" alt="" class="arrow-icon" aria-hidden="true">
           </label>
 
+          <!-- Hidden body revealed when checkbox is checked -->
           <div class="card-body" id="card3-body">
             <table class="gift-table">
               <thead>
                 <tr><th>מוצר</th><th>כמות</th><th>מחיר יח'</th><th>סה״כ</th></tr>
               </thead>
               <tbody>
-                <tr><td>קינמון טחון 50ג'</td><td>1</td><td>₪10.50</td><td>₪10.50</td></tr>
-                <tr><td>הל טחון 50ג'</td><td>1</td><td>₪14.90</td><td>₪14.90</td></tr>
-                <tr><td>בהרט 30ג'</td><td>1</td><td>₪9.90</td><td>₪9.90</td></tr>
-                <tr><td>גולדן מילק 50ג'</td><td>1</td><td>₪6.90</td><td>₪6.90</td></tr>
+                <tr><td>קינמון טחון 50 ג'</td><td>1</td><td>₪10.50</td><td>₪10.50</td></tr>
+                <tr><td>הל טחון 50 ג'</td><td>1</td><td>₪14.90</td><td>₪14.90</td></tr>
+                <tr><td>בהרט 30 ג'</td><td>1</td><td>₪9.90</td><td>₪9.90</td></tr>
+                <tr><td>גולדן מילק 50 ג'</td><td>1</td><td>₪6.90</td><td>₪6.90</td></tr>
                 <tr class="row-sub"><td>אריזת מתנה</td><td>—</td><td>₪5.00</td><td>₪5.00</td></tr>
-                <tr class="row-discount"><td>הנחת מארז</td><td>—</td><td>-₪5.00</td><td>-₪5.00</td></tr>
+
               </tbody>
-              <tfoot><tr><th colspan="3">סה״כ לתשלום</th><th>₪42.20</th></tr></tfoot>
+              <tfoot><tr><th colspan="3">סה״כ לתשלום</th><th>₪47.20</th></tr></tfoot>
             </table>
             <button class="btn-primary">הוסף לסל</button>
           </div>
         </section>
 
-        <!-- ===== Card 4 ===== -->
+        <!-- Card 4  -->
         <section class="gift-card">
+
+          <!-- Hidden checkbox controls open/close state -->
           <input type="checkbox" id="card4" class="card-toggle" aria-controls="card4-body">
           <label for="card4" class="card-summary">
             <img src="../media/gift_box4.jpg" alt="חבילת רק צהוב" class="card-img">
@@ -159,25 +179,27 @@
                 אם כבר צהוב, אז עשיר, מגוון ומעניין.
               </p>
             </div>
+            <!-- The arrow -->
             <img src="../media/down-arrow.png" alt="" class="arrow-icon" aria-hidden="true">
           </label>
 
+          <!-- Hidden body revealed when checkbox is checked -->
           <div class="card-body" id="card4-body">
             <table class="gift-table">
               <thead>
                 <tr><th>מוצר</th><th>כמות</th><th>מחיר יח'</th><th>סה״כ</th></tr>
               </thead>
               <tbody>
-                <tr><td>כורכום 50ג'</td><td>2</td><td>₪7.90</td><td>₪15.80</td></tr>
-                <tr><td>קארי מסאלה 50ג'</td><td>1</td><td>₪9.90</td><td>₪9.90</td></tr>
-                <tr><td>חוואיג' למרק 50ג'</td><td>1</td><td>₪11.90</td><td>₪11.90</td></tr>
-                <tr><td>תערובת לשווארמה 50ג'</td><td>1</td><td>₪8.90</td><td>₪8.90</td></tr>
-                <tr><td>תערובת לעוף צלוי 50ג'</td><td>1</td><td>₪9.90</td><td>₪9.90</td></tr>
-                <tr><td>תערובת מעורב ירושלמי 50ג'</td><td>1</td><td>₪10.90</td><td>₪10.90</td></tr>
+                <tr><td>כורכום 50 ג'</td><td>2</td><td>₪7.90</td><td>₪15.80</td></tr>
+                <tr><td>קארי מסאלה 50 ג'</td><td>1</td><td>₪9.90</td><td>₪9.90</td></tr>
+                <tr><td>חוואיג' למרק 50 ג'</td><td>1</td><td>₪11.90</td><td>₪11.90</td></tr>
+                <tr><td>תערובת לשווארמה 50 ג'</td><td>1</td><td>₪8.90</td><td>₪8.90</td></tr>
+                <tr><td>תערובת לעוף צלוי 50 ג'</td><td>1</td><td>₪9.90</td><td>₪9.90</td></tr>
+                <tr><td> מעורב ירושלמי 50 ג'</td><td>1</td><td>₪10.90</td><td>₪10.90</td></tr>
                 <tr class="row-sub"><td>אריזת מתנה</td><td>—</td><td>₪5.00</td><td>₪5.00</td></tr>
-                <tr class="row-discount"><td>הנחת מארז</td><td>—</td><td>-₪10.00</td><td>-₪10.00</td></tr>
+
               </tbody>
-              <tfoot><tr><th colspan="3">סה״כ לתשלום</th><th>₪62.30</th></tr></tfoot>
+              <tfoot><tr><th colspan="3">סה״כ לתשלום</th><th>₪72.30</th></tr></tfoot>
             </table>
             <button class="btn-primary">הוסף לסל</button>
           </div>
