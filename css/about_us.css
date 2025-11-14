@@ -53,8 +53,6 @@
 }
 .toc a:hover { color:#3b3b3b; }
 
-/* Keep section title visible after jump */
-section[id] { scroll-margin-top: 100px; }
 
 /* Split layout: image + text */
 .split {
