@@ -73,7 +73,8 @@ body {
   text-align: center;     
   padding: 20px 0;         
   font-size: 1rem;       
-  color: #3b3b3b;         
+  color: #3b3b3b;  
+  background-color: #fdf7f2;       
 }
 
 .main-footer a {
